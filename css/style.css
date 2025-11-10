@@ -1,0 +1,26 @@
+:root{
+  --bg:#fff; --text:#111; --accent:#000;
+  --gap:20px; --max-width:1200px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+body{margin:0;color:var(--text);background:var(--bg);line-height:1.35}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px;max-width:var(--max-width);margin:0 auto}
+.brand{font-weight:700}
+.nav{display:flex;gap:18px}
+.nav a{text-decoration:none;color:inherit;font-size:0.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--gap);max-width:var(--max-width);margin:24px auto;padding:0 18px}
+.card{display:block;text-decoration:none;color:inherit;position:relative;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.card:hover img{transform:scale(1.04)}
+.caption{padding:10px 6px;font-size:0.85rem}
+.about{max-width:800px;margin:40px auto;padding:0 18px}
+.site-footer{text-align:center;padding:28px 0;color:#666}
+
+/* mobile menu */
+#menuToggle{display:none}
+@media(max-width:720px){
+  .nav{display:none}
+  #menuToggle{display:block}
+  body.menu-open .nav{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:var(--bg);padding:18px}
+}
