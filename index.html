@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mon portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">Ton Nom</div>
+    <nav class="nav">
+      <a href="#works">Works</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="menuToggle" aria-label="Ouvrir menu">☰</button>
+  </header>
+
+  <main>
+    <section id="works" class="grid">
+      <!-- répète les cards images -->
+      <a class="card" href="images/photo1.jpg">
+        <img src="images/photo1-thumb.jpg" alt="Titre 1">
+        <div class="caption">Paris — 2024</div>
+      </a>
+      <!-- ... autres images -->
+    </section>
+
+    <section id="about" class="about">
+      <h2>À propos</h2>
+      <p>Texte court sur toi.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> Ton Nom
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // menu toggle simple
+    const btn = document.getElementById('menuToggle');
+    btn.addEventListener('click', ()=> document.body.classList.toggle('menu-open'));
+  </script>
+</body>
+</html>
