@@ -87,9 +87,30 @@ a {
     transition: transform 0.3s ease;
 }
 
-.project-item:hover .project-title {
-    transform: translateY(0); /* Le titre glisse vers le haut au survol */
+/* --- 3. Galerie de Projets (Mise à jour) --- */
+/* ... (le reste du CSS de .gallery) ... */
+
+.project-item {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    /* Vous pouvez définir ici une hauteur fixe pour l'élément conteneur si vous voulez */
+    height: 350px; /* Par exemple, une hauteur de 350 pixels pour tous les blocs */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
+
+.project-item img {
+    width: 100%;
+    /* CECI EST LA CLÉ : Forcer toutes les images à la hauteur du conteneur */
+    height: 100%; 
+    display: block;
+    
+    /* CECI EST LA CLÉ : S'assurer que l'image couvre l'espace sans être déformée */
+    object-fit: cover; 
+    
+    transition: transform 0.5s ease; 
+}
+/* ... (le reste du CSS) ... */
 
 /* --- 4. Pied de Page (Footer) --- */
 .footer {
@@ -100,3 +121,4 @@ a {
     text-align: center;
     font-size: 0.85em;
     color: #88
+
