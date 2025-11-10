@@ -13,7 +13,6 @@
             <a href="index.html" class="logo">Timothe Ballan</a>
             <div class="nav-links">
                 <a href="#projets">Projets</a>
-                <a href="#a-propos">À Propos</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
@@ -21,23 +20,33 @@
 
     <main class="gallery" id="projets">
         
-        <a href="#" class="project-item">
-            <img src="images/02.jpg" alt="Titre de votre premier projet">
+        <a href="#lightbox-1" class="project-item">
+            <img src="images/02.jpg" alt="Photo de projet 1 : homme sur un banc">
             <div class="project-title">Titre du Projet 1</div>
         </a>
 
-        <a href="#" class="project-item">
-            <img src="images/37.png" alt="Titre de votre deuxième projet">
+        <a href="#lightbox-2" class="project-item">
+            <img src="images/37.png" alt="Photo de projet 2 : gros plan en jaune et noir">
             <div class="project-title">Titre du Projet 2</div>
         </a>
 
-    </main>
+        </main>
+
+    <div id="lightbox-1" class="lightbox">
+        <a href="#projets" class="close-btn">X</a> 
+        <img src="images/02.jpg" alt="Photo de projet 1 en grand format">
+    </div>
+
+    <div id="lightbox-2" class="lightbox">
+        <a href="#projets" class="close-btn">X</a>
+        <img src="images/37.png" alt="Photo de projet 2 en grand format">
+    </div>
 
     <footer class="footer" id="contact">
         <p>Contactez-moi à : votre.email@exemple.com</p>
         <div class="social-links">
             <a href="https://github.com/TimotheBallan">GitHub</a>
-            </div>
+        </div>
         <p>&copy; 2025 Timothe Ballan. Tous droits réservés.</p>
     </footer>
 
