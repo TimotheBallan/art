@@ -37,7 +37,7 @@ a {
     opacity: 1; 
 }
 
-/* --- 3. Galerie de Projets (Le Cœur du Design) --- */
+/* --- 3. Galerie de Projets (Grille Uniforme) --- */
 .gallery {
     max-width: 1200px;
     margin: 50px auto;
@@ -51,17 +51,17 @@ a {
     display: block;
     overflow: hidden;
     position: relative;
-    /* Hauteur fixe pour le conteneur du projet */
-    height: 350px; /* Ajustez cette valeur si vous le souhaitez */
+    /* CLÉ 1: Hauteur fixe pour que toutes les vignettes soient uniformes */
+    height: 350px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .project-item img {
     width: 100%;
-    /* L'image prend 100% de la hauteur du conteneur parent */
+    /* CLÉ 2: L'image prend 100% de la hauteur du conteneur parent */
     height: 100%; 
     display: block;
-    /* L'image couvre la zone définie sans être déformée, coupant si nécessaire */
+    /* CLÉ 3: L'image couvre la zone sans être déformée, coupant si nécessaire */
     object-fit: cover; 
     transition: transform 0.5s ease; 
 }
@@ -98,7 +98,7 @@ a {
     border-top: 1px solid #ddd; 
     text-align: center;
     font-size: 0.85em;
-    color: #888; /* Correction ici */
+    color: #888;
 }
 
 .footer .social-links a {
@@ -110,8 +110,63 @@ a {
     opacity: 1;
 }
 
-/* --- 5. Responsive pour les petits écrans --- */
-@media (max-width: 650px) { /* Correction ici */
+/* --- 5. Styles Lightbox / Modal (Zoom au clic) --- */
+.lightbox {
+    /* Cache la lightbox par défaut */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    
+    /* Positionnement en plein écran */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.9);
+    
+    /* Centrage de l'image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CLÉ CSS: Affiche la lightbox quand son ID est dans l'URL */
+.lightbox:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.lightbox img {
+    /* L'image prend 90% de la taille de l'écran */
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    /* Annule les styles de la galerie pour afficher l'image entière */
+    object-fit: contain; 
+    transform: none !important;
+}
+
+/* Bouton de fermeture (X) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+    opacity: 1;
+}
+
+/* --- 6. Responsive pour les petits écrans --- */
+@media (max-width: 650px) {
     .header nav {
         flex-direction: column;
     }
