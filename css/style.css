@@ -51,18 +51,15 @@ a {
     display: block;
     overflow: hidden;
     position: relative;
-    /* CLÉ 1: Hauteur fixe pour que toutes les vignettes soient uniformes */
-    height: 350px; 
+    height: 350px; /* Hauteur fixe pour que toutes les vignettes soient uniformes */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .project-item img {
     width: 100%;
-    /* CLÉ 2: L'image prend 100% de la hauteur du conteneur parent */
     height: 100%; 
     display: block;
-    /* CLÉ 3: L'image couvre la zone sans être déformée, coupant si nécessaire */
-    object-fit: cover; 
+    object-fit: cover; /* L'image couvre la zone sans être déformée, coupant si nécessaire */
     transition: transform 0.5s ease; 
 }
 
@@ -112,13 +109,12 @@ a {
 
 /* --- 5. Styles Lightbox / Modal (Zoom au clic) --- */
 .lightbox {
-    /* Cache la lightbox par défaut */
+    /* Cache la lightbox par défaut et la retire du flux du document */
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease;
     
-    /* Positionnement en plein écran */
-    position: fixed;
+    position: fixed; /* Reste en place même au défilement */
     top: 0;
     left: 0;
     width: 100%;
@@ -126,27 +122,25 @@ a {
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.9);
     
-    /* Centrage de l'image */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* CLÉ CSS: Affiche la lightbox quand son ID est dans l'URL */
+/* Affiche la lightbox quand son ID est dans l'URL */
 .lightbox:target {
     visibility: visible;
     opacity: 1;
 }
 
 .lightbox img {
-    /* L'image prend 90% de la taille de l'écran */
-    max-width: 90%;
-    max-height: 90%;
+    /* L'image prend 90% de la largeur et hauteur visibles de l'écran */
+    max-width: 90vw;   /* 90% de la largeur de la vue (viewport width) */
+    max-height: 90vh;  /* 90% de la hauteur de la vue (viewport height) */
     width: auto;
     height: auto;
-    /* Annule les styles de la galerie pour afficher l'image entière */
-    object-fit: contain; 
-    transform: none !important;
+    object-fit: contain; /* L'image entière est visible, avec des marges si les proportions ne correspondent pas */
+    transform: none !important; /* Annule l'effet de zoom au survol */
 }
 
 /* Bouton de fermeture (X) */
