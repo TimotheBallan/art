@@ -1,20 +1,20 @@
 /* --- 1. Réinitialisation et Polices --- */
-/* Utilisation de polices sans serif pour un look moderne et propre */
 body {
+    /* Utilisation de polices sans serif pour un look moderne et propre */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: #333; /* Texte sombre */
-    background-color: #f7f7f7; /* Fond très légèrement gris (ou blanc pur #fff) */
+    background-color: #f7f7f7; /* Fond très légèrement gris pour un aspect épuré */
     margin: 0;
     line-height: 1.6;
 }
 
-/* Retrait du style des liens */
+/* Retrait du style par défaut des liens */
 a {
     text-decoration: none;
-    color: inherit; /* Les liens héritent de la couleur du texte parent */
+    color: inherit; 
 }
 
-/* --- 2. En-tête (Header) --- */
+/* --- 2. En-tête (Navigation) --- */
 .header nav {
     max-width: 1200px;
     margin: 0 auto;
@@ -31,7 +31,7 @@ a {
 
 .nav-links a {
     margin-left: 20px;
-    /* L'effet de survol est très subtil chez Billy Dinh */
+    /* Effet subtil comme Billy Dinh */
     opacity: 0.7; 
     transition: opacity 0.3s;
 }
@@ -46,47 +46,49 @@ a {
     margin: 50px auto;
     padding: 0 20px;
     display: grid;
-    /* Utilisation de la grille CSS pour un layout type "maçonnerie" ou simple grille */
-    /* Ceci est l'élément clé pour l'esthétique Dinh : une grille propre et visuelle */
+    /* Grille flexible : 300px min, jusqu'à 1 fraction de l'espace disponible */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px;
+    gap: 30px; /* Espace entre les projets */
 }
 
 .project-item {
     display: block;
     overflow: hidden;
     position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Ombre très légère */
 }
 
 .project-item img {
     width: 100%;
     height: auto;
     display: block;
-    /* Effet subtil au survol pour un look professionnel */
+    object-fit: cover;
     transition: transform 0.5s ease; 
 }
 
 .project-item:hover img {
-    transform: scale(1.03); /* Zoom léger */
+    transform: scale(1.03); /* Zoom léger et professionnel */
 }
 
+/* Titre qui apparaît au survol */
 .project-title {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.6); /* Fond sombre semi-transparent */
+    background: rgba(0, 0, 0, 0.7); /* Fond sombre semi-transparent */
     color: white;
     font-size: 1.1em;
     font-weight: 500;
-    /* L'astuce pour le minimalisme : le titre apparaît au survol ou reste subtil */
+    text-align: center;
+    /* Le titre est initialement caché vers le bas */
     transform: translateY(100%); 
     transition: transform 0.3s ease;
 }
 
 .project-item:hover .project-title {
-    transform: translateY(0);
+    transform: translateY(0); /* Le titre glisse vers le haut au survol */
 }
 
 /* --- 4. Pied de Page (Footer) --- */
@@ -94,34 +96,7 @@ a {
     max-width: 1200px;
     margin: 50px auto 20px auto;
     padding: 20px;
-    border-top: 1px solid #ddd; /* Ligne de séparation subtile */
+    border-top: 1px solid #ddd; 
     text-align: center;
     font-size: 0.85em;
-    color: #888;
-}
-
-.footer .social-links a {
-    margin: 0 10px;
-    opacity: 0.7;
-}
-
-.footer .social-links a:hover {
-    opacity: 1;
-}
-
-/* --- 5. Responsive pour les petits écrans --- */
-@media (max-width: 600px) {
-    .header nav {
-        flex-direction: column;
-    }
-    .nav-links {
-        margin-top: 10px;
-    }
-    .nav-links a {
-        margin: 0 10px;
-    }
-    /* Une seule colonne sur les très petits écrans */
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-}
+    color: #88
