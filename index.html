@@ -1,47 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mon portfolio</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timothe Ballan | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">Ton Nom</div>
-    <nav class="nav">
-      <a href="#works">Works</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button id="menuToggle" aria-label="Ouvrir menu">☰</button>
-  </header>
 
-  <main>
-    <section id="works" class="grid">
-      <!-- répète les cards images -->
-      <a class="card" href="images/photo1.jpg">
-        <img src="images/photo1-thumb.jpg" alt="Titre 1">
-        <div class="caption">Paris — 2024</div>
-      </a>
-      <!-- ... autres images -->
-    </section>
+    <header class="header">
+        <nav>
+            <a href="index.html" class="logo">Timothe Ballan</a>
+            <div class="nav-links">
+                <a href="#projets">Projets</a>
+                <a href="#a-propos">À Propos</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-    <section id="about" class="about">
-      <h2>À propos</h2>
-      <p>Texte court sur toi.</p>
-    </section>
-  </main>
+    <main class="gallery">
+        <a href="lien-vers-le-projet-1.html" class="project-item">
+            <img src="images/votre-image-1.jpg" alt="Description du Projet 1">
+            <div class="project-title">Titre du Projet 1</div>
+        </a>
 
-  <footer class="site-footer">
-    © <span id="year"></span> Ton Nom
-  </footer>
+        <a href="lien-vers-le-projet-2.html" class="project-item">
+            <img src="images/votre-image-2.jpg" alt="Description du Projet 2">
+            <div class="project-title">Titre du Projet 2</div>
+        </a>
+        </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // menu toggle simple
-    const btn = document.getElementById('menuToggle');
-    btn.addEventListener('click', ()=> document.body.classList.toggle('menu-open'));
-  </script>
+    <footer class="footer">
+        <p>&copy; 2025 Timothe Ballan. Tous droits réservés.</p>
+        <div class="social-links">
+            <a href="lien-github">GitHub</a>
+            </div>
+    </footer>
+
 </body>
 </html>
