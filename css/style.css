@@ -1,13 +1,14 @@
 /* --- 1. Réinitialisation et Polices --- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* MODIFIÉ: Utilisation de la police Oswald */
+    font-family: 'Oswald', sans-serif;
     color: #333;
     background-color: #f7f7f7;
     margin: 0;
-    /* AJOUTÉ POUR SÉCURITÉ */
     padding: 0;
     line-height: 1.6;
 }
+/* ... le reste de votre CSS ... */
 
 a {
     text-decoration: none;
@@ -259,3 +260,4 @@ a {
         margin-bottom: 0;
     }
 }
+
