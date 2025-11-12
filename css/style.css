@@ -37,37 +37,45 @@ a {
     opacity: 1; 
 }
 
-/* --- 3. Galerie de Projets (Grille Uniforme) --- */
+/* --- 3. Galerie de Projets (Grille SANS recadrage - type Masonry) --- */
 .gallery {
     max-width: 1200px;
     margin: 50px auto;
     padding: 0 20px;
     display: grid;
+    /* La grille adapte les colonnes, mais les lignes sont dynamiques */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px;
+    gap: 20px; /* Un peu moins d'espace pour un look plus serré */
+    /* Ces deux propriétés sont essentielles pour le layout masonry */
+    grid-auto-rows: 1px; 
+    grid-auto-flow: dense; 
 }
 
 .project-item {
     display: block;
     overflow: hidden;
     position: relative;
-    height: 350px; /* Hauteur fixe pour que toutes les vignettes soient uniformes */
+    /* Retrait de la hauteur fixe pour que l'image définisse sa propre hauteur */
+    /* height: 350px; <-- SUPPRIMEZ CETTE LIGNE */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px; /* Un petit arrondi pour l'esthétique */
+    line-height: 0; /* Élimine l'espace sous l'image */
 }
 
 .project-item img {
     width: 100%;
-    height: 100%; 
+    height: auto; /* L'image définit sa hauteur proportionnellement à sa largeur */
     display: block;
-    object-fit: cover; /* L'image couvre la zone sans être déformée, coupant si nécessaire */
+    /* Conserve l'image entière sans la couper */
+    object-fit: contain; 
     transition: transform 0.5s ease; 
 }
 
 .project-item:hover img {
-    transform: scale(1.03); 
+    transform: none; /* Désactive le zoom au survol pour les vignettes, car elles changent de hauteur */
 }
 
-/* Titre qui apparaît au survol */
+/* Titre qui apparaît au survol (ajusté pour le nouveau comportement) */
 .project-title {
     position: absolute;
     bottom: 0;
@@ -81,6 +89,7 @@ a {
     text-align: center;
     transform: translateY(100%); 
     transition: transform 0.3s ease;
+    line-height: 1.6; /* Rétablit la hauteur de ligne pour le texte */
 }
 
 .project-item:hover .project-title {
@@ -109,12 +118,11 @@ a {
 
 /* --- 5. Styles Lightbox / Modal (Zoom au clic) --- */
 .lightbox {
-    /* Cache la lightbox par défaut et la retire du flux du document */
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease;
     
-    position: fixed; /* Reste en place même au défilement */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
@@ -127,23 +135,20 @@ a {
     align-items: center;
 }
 
-/* Affiche la lightbox quand son ID est dans l'URL */
 .lightbox:target {
     visibility: visible;
     opacity: 1;
 }
 
 .lightbox img {
-    /* L'image prend 90% de la largeur et hauteur visibles de l'écran */
-    max-width: 90vw;   /* 90% de la largeur de la vue (viewport width) */
-    max-height: 90vh;  /* 90% de la hauteur de la vue (viewport height) */
+    max-width: 90vw;   
+    max-height: 90vh;  
     width: auto;
     height: auto;
-    object-fit: contain; /* L'image entière est visible, avec des marges si les proportions ne correspondent pas */
-    transform: none !important; /* Annule l'effet de zoom au survol */
+    object-fit: contain; 
+    transform: none !important; 
 }
 
-/* Bouton de fermeture (X) */
 .close-btn {
     position: absolute;
     top: 20px;
@@ -171,17 +176,18 @@ a {
         margin: 0 10px;
     }
     .gallery {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile pour plus de lisibilité */
         gap: 15px;
     }
 }
+
 /* --- 7. Styles de page de Contenu (Contact, Demoreel) --- */
 
 .content-page {
     max-width: 900px;
-    margin: 80px auto 50px auto;
+    margin: 80px auto 50px auto; 
     padding: 0 20px;
-    text-align: center;
+    /* text-align: center;  <-- On peut le retirer pour avoir un texte aligné à gauche */
 }
 
 /* Conteneur de Vidéo pour Demoreel */
@@ -212,6 +218,7 @@ a {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin-top: 40px;
+    text-align: center; /* Pour centrer le contenu de la carte de contact */
 }
 
 .profile-photo {
@@ -229,7 +236,7 @@ a {
 .linkedin-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #0077B5; /* Couleur LinkedIn */
+    background-color: #0077B5; 
     color: white !important;
     border-radius: 4px;
     margin-top: 15px;
@@ -238,13 +245,13 @@ a {
 
 .linkedin-btn:hover {
     background-color: #005582;
-    opacity: 1 !important; /* Pour annuler l'opacité du style de lien par défaut */
+    opacity: 1 !important; 
 }
 
 @media (min-width: 600px) {
     .contact-card {
         flex-direction: row;
-        text-align: left;
+        text-align: left; /* Réaligne le texte à gauche si en ligne */
     }
     .profile-photo {
         margin-right: 30px;
