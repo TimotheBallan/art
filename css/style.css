@@ -14,11 +14,11 @@ a {
 
 /* --- 2. En-tête (Navigation) --- */
 .header nav {
-    /* Augmentation de la largeur max pour la navigation et le contenu */
-    max-width: 1400px; 
+    /* MODIFICATION: Augmentation de la largeur max (était 1400px) */
+    max-width: 1600px; 
     margin: 0 auto;
-    /* Réduction du padding sur les côtés */
-    padding: 20px 10px; 
+    /* MODIFICATION: Réduction du padding sur les côtés (était 10px) */
+    padding: 20px 5px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,34 +41,33 @@ a {
 
 /* --- 3. Galerie de Projets (Grille Masonry CSS Columns) --- */
 .gallery {
-    /* Augmentation de la largeur max pour la galerie */
-    max-width: 1400px; 
-    margin: 30px auto; /* Légèrement moins de marge en haut/bas */
-    /* Réduction du padding sur les côtés */
-    padding: 0 10px; 
+    /* MODIFICATION: Augmentation de la largeur max (était 1400px) */
+    max-width: 1600px; 
+    margin: 30px auto; 
+    /* MODIFICATION: Réduction du padding sur les côtés (était 10px) */
+    padding: 0 5px; 
     
     /* Configuration des colonnes CSS pour 5 colonnes sur grand écran */
     column-count: 5; 
-    column-gap: 15px; /* Espacement un peu plus serré entre les colonnes */
+    column-gap: 15px; 
 }
 
 .project-item {
     display: block;
     break-inside: avoid; 
     
-    margin-bottom: 15px; /* Espacement vertical ajusté */
+    margin-bottom: 15px; 
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     border-radius: 4px;
-    overflow: hidden; /* IMPORTANT pour cacher le débordement du zoom */
-    cursor: pointer; /* Indique que l'élément est cliquable */
+    overflow: hidden; 
+    cursor: pointer; 
 }
 
 .project-item img {
     width: 100%;
     height: auto; 
     display: block;
-    /* AJOUT/MODIFICATION: Transition pour le zoom fluide */
     transition: transform 0.3s ease-in-out; 
 }
 
@@ -77,13 +76,13 @@ a {
     transform: scale(1.05); /* Zoom de 5% */
 }
 
-/* Suppression des styles .project-title puisque le HTML a été nettoyé */
-
 /* --- 4. Pied de Page (Footer) --- */
 .footer {
-    max-width: 1400px;
+    /* MODIFICATION: Augmentation de la largeur max (était 1400px) */
+    max-width: 1600px;
     margin: 50px auto 20px auto;
-    padding: 20px 10px;
+    /* MODIFICATION: Réduction du padding sur les côtés (était 10px) */
+    padding: 20px 5px;
     border-top: 1px solid #ddd; 
     text-align: center;
     font-size: 0.85em;
@@ -129,7 +128,7 @@ a {
     width: auto;
     height: auto;
     object-fit: contain; 
-    transform: none !important; /* Maintien pour annuler tout zoom CSS sur les images de la lightbox */
+    transform: none !important; 
 }
 
 .close-btn {
@@ -179,13 +178,15 @@ a {
     }
     .gallery {
         column-count: 1; /* 1 seule colonne sur mobile */
-        padding: 0 20px; /* Plus de padding sur mobile pour ne pas coller les bords */
+        /* Maintien du padding de 20px pour un bon espacement sur mobile */
+        padding: 0 20px; 
     }
 }
 
 /* --- 7. Styles de page de Contenu (Contact, Demoreel) --- */
 
 .content-page {
+    /* Maintien de la largeur pour le contenu textuel (900px) */
     max-width: 900px;
     margin: 80px auto 50px auto; 
     padding: 0 20px;
