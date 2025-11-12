@@ -14,9 +14,9 @@ a {
 
 /* --- 2. En-tête (Navigation) --- */
 .header nav {
-    max-width: 1600px; 
+    /* MODIFIÉ: Utilise la largeur maximale de l'écran */
+    max-width: 100%; 
     margin: 0 auto;
-    /* MODIFIÉ: Suppression du padding horizontal pour maximiser l'espace */
     padding: 35px 0; 
     display: flex;
     justify-content: space-between;
@@ -40,9 +40,9 @@ a {
 
 /* --- 3. Galerie de Projets (Grille Masonry CSS Columns) --- */
 .gallery {
-    max-width: 1600px; 
+    /* MODIFIÉ: Utilise la largeur maximale de l'écran */
+    max-width: 100%; 
     margin: 60px auto 30px auto; 
-    /* MODIFIÉ: Suppression du padding horizontal pour maximiser l'espace des photos */
     padding: 0; 
     
     column-count: 5; 
@@ -74,9 +74,9 @@ a {
 
 /* --- 4. Pied de Page (Footer) --- */
 .footer {
-    max-width: 1600px;
+    /* MODIFIÉ: Utilise la largeur maximale de l'écran */
+    max-width: 100%;
     margin: 50px auto 20px auto;
-    /* MODIFIÉ: Suppression du padding horizontal pour maximiser l'espace */
     padding: 20px 0;
     border-top: 1px solid #ddd; 
     text-align: center;
