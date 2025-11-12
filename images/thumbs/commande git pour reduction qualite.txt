@@ -1,0 +1,18 @@
+for file in *.jpg; do
+    magick "$file" -quality 60 "C:\Users\Timothe\Desktop\site\images\thumbs/$file"
+done
+
+
+
+for file in *.jpg; do
+    magick "$file" -resize 25% -quality 60 "$file"
+done
+
+
+
+Convertion png to jpg :
+
+for file in *.png; do
+    base_name=$(basename "$file" .png)
+    magick "$file" -quality 60 "C:\Users\Timothe\Desktop\site\images\thumbs/${base_name}.jpg"
+done
