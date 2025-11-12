@@ -16,8 +16,8 @@ a {
 .header nav {
     max-width: 1600px; 
     margin: 0 auto;
-    /* MODIFIÉ: Augmentation du padding vertical pour plus d'espace au-dessus et en dessous */
-    padding: 35px 5px; 
+    /* MODIFIÉ: Suppression du padding horizontal pour maximiser l'espace */
+    padding: 35px 0; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,7 +25,6 @@ a {
 
 .logo {
     font-weight: bold;
-    /* MODIFIÉ: Agrandissement du nom/logo */
     font-size: 1.6em; 
 }
 
@@ -42,9 +41,9 @@ a {
 /* --- 3. Galerie de Projets (Grille Masonry CSS Columns) --- */
 .gallery {
     max-width: 1600px; 
-    /* MODIFIÉ: Augmentation de la marge supérieure pour plus d'espace entre la nav et la galerie */
     margin: 60px auto 30px auto; 
-    padding: 0 5px; 
+    /* MODIFIÉ: Suppression du padding horizontal pour maximiser l'espace des photos */
+    padding: 0; 
     
     column-count: 5; 
     column-gap: 15px; 
@@ -77,7 +76,8 @@ a {
 .footer {
     max-width: 1600px;
     margin: 50px auto 20px auto;
-    padding: 20px 5px;
+    /* MODIFIÉ: Suppression du padding horizontal pour maximiser l'espace */
+    padding: 20px 0;
     border-top: 1px solid #ddd; 
     text-align: center;
     font-size: 0.85em;
@@ -164,7 +164,7 @@ a {
 @media (max-width: 650px) {
     .header nav {
         flex-direction: column;
-        padding: 20px 5px; /* Réduction du padding sur mobile si la flex-direction change */
+        padding: 20px 5px; 
     }
     .nav-links {
         margin-top: 10px;
@@ -175,7 +175,7 @@ a {
     .gallery {
         column-count: 1; 
         padding: 0 20px; 
-        margin: 40px auto 30px auto; /* Ajustement de la marge supérieure pour mobile */
+        margin: 40px auto 30px auto; 
     }
 }
 
