@@ -14,9 +14,11 @@ a {
 
 /* --- 2. En-tête (Navigation) --- */
 .header nav {
-    max-width: 1200px;
+    /* Augmentation de la largeur max pour la navigation et le contenu */
+    max-width: 1400px; 
     margin: 0 auto;
-    padding: 20px 20px;
+    /* Réduction du padding sur les côtés */
+    padding: 20px 10px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,45 +39,42 @@ a {
     opacity: 1; 
 }
 
-/* --- 3. Galerie de Projets (Grille SANS recadrage - type Masonry) --- */
+/* --- 3. Galerie de Projets (Grille Masonry CSS Columns) --- */
 .gallery {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
-    display: grid;
-    /* La grille adapte les colonnes, mais les lignes sont dynamiques */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 20px; /* Un peu moins d'espace pour un look plus serré */
-    /* Ces deux propriétés sont essentielles pour le layout masonry */
-    grid-auto-rows: 1px; 
-    grid-auto-flow: dense; 
+    /* Augmentation de la largeur max pour la galerie */
+    max-width: 1400px; 
+    margin: 30px auto; /* Légèrement moins de marge en haut/bas */
+    /* Réduction du padding sur les côtés */
+    padding: 0 10px; 
+    
+    /* Configuration des colonnes CSS pour 5 colonnes sur grand écran */
+    column-count: 5; 
+    column-gap: 15px; /* Espacement un peu plus serré entre les colonnes */
 }
 
 .project-item {
     display: block;
-    overflow: hidden;
+    break-inside: avoid; 
+    
+    margin-bottom: 15px; /* Espacement vertical ajusté */
     position: relative;
-    /* Retrait de la hauteur fixe pour que l'image définisse sa propre hauteur */
-    /* height: 350px; <-- SUPPRIMEZ CETTE LIGNE */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border-radius: 8px; /* Un petit arrondi pour l'esthétique */
-    line-height: 0; /* Élimine l'espace sous l'image */
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .project-item img {
     width: 100%;
-    height: auto; /* L'image définit sa hauteur proportionnellement à sa largeur */
+    height: auto; 
     display: block;
-    /* Conserve l'image entière sans la couper */
-    object-fit: contain; 
-    transition: transform 0.5s ease; 
+    transition: transform 0.5s ease;
 }
 
 .project-item:hover img {
-    transform: none; /* Désactive le zoom au survol pour les vignettes, car elles changent de hauteur */
+    transform: none; 
 }
 
-/* Titre qui apparaît au survol (ajusté pour le nouveau comportement) */
+/* Titre qui apparaît au survol */
 .project-title {
     position: absolute;
     bottom: 0;
@@ -89,7 +88,7 @@ a {
     text-align: center;
     transform: translateY(100%); 
     transition: transform 0.3s ease;
-    line-height: 1.6; /* Rétablit la hauteur de ligne pour le texte */
+    line-height: 1.6;
 }
 
 .project-item:hover .project-title {
@@ -98,9 +97,9 @@ a {
 
 /* --- 4. Pied de Page (Footer) --- */
 .footer {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 50px auto 20px auto;
-    padding: 20px;
+    padding: 20px 10px;
     border-top: 1px solid #ddd; 
     text-align: center;
     font-size: 0.85em;
@@ -164,7 +163,26 @@ a {
     opacity: 1;
 }
 
-/* --- 6. Responsive pour les petits écrans --- */
+/* --- 6. Responsive pour les petits écrans (Ajustement des colonnes) --- */
+
+@media (max-width: 1400px) {
+    .gallery {
+        column-count: 4; /* 4 colonnes sur les écrans plus petits que 1400px */
+    }
+}
+
+@media (max-width: 1100px) {
+    .gallery {
+        column-count: 3; /* 3 colonnes sur les écrans plus petits que 1100px */
+    }
+}
+
+@media (max-width: 750px) {
+    .gallery {
+        column-count: 2; /* 2 colonnes sur tablette */
+    }
+}
+
 @media (max-width: 650px) {
     .header nav {
         flex-direction: column;
@@ -176,8 +194,8 @@ a {
         margin: 0 10px;
     }
     .gallery {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile pour plus de lisibilité */
-        gap: 15px;
+        column-count: 1; /* 1 seule colonne sur mobile */
+        padding: 0 20px; /* Plus de padding sur mobile pour ne pas coller les bords */
     }
 }
 
@@ -187,7 +205,6 @@ a {
     max-width: 900px;
     margin: 80px auto 50px auto; 
     padding: 0 20px;
-    /* text-align: center;  <-- On peut le retirer pour avoir un texte aligné à gauche */
 }
 
 /* Conteneur de Vidéo pour Demoreel */
@@ -218,7 +235,7 @@ a {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     margin-top: 40px;
-    text-align: center; /* Pour centrer le contenu de la carte de contact */
+    text-align: center;
 }
 
 .profile-photo {
@@ -251,7 +268,7 @@ a {
 @media (min-width: 600px) {
     .contact-card {
         flex-direction: row;
-        text-align: left; /* Réaligne le texte à gauche si en ligne */
+        text-align: left;
     }
     .profile-photo {
         margin-right: 30px;
