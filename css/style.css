@@ -4,6 +4,8 @@ body {
     color: #333;
     background-color: #f7f7f7;
     margin: 0;
+    /* AJOUTÉ POUR SÉCURITÉ */
+    padding: 0;
     line-height: 1.6;
 }
 
@@ -16,7 +18,7 @@ a {
 .header nav {
     max-width: 1600px; 
     margin: 0 auto;
-    /* MODIFIÉ: padding horizontal de 10px */
+    /* Espacement de 10px de chaque côté */
     padding: 35px 10px; 
     display: flex;
     justify-content: space-between;
@@ -42,7 +44,7 @@ a {
 .gallery {
     max-width: 1600px; 
     margin: 60px auto 30px auto; 
-    /* MODIFIÉ: padding horizontal de 10px */
+    /* Espacement de 10px de chaque côté */
     padding: 0 10px; 
     
     column-count: 5; 
@@ -76,7 +78,7 @@ a {
 .footer {
     max-width: 1600px;
     margin: 50px auto 20px auto;
-    /* MODIFIÉ: padding horizontal de 10px */
+    /* Espacement de 10px de chaque côté */
     padding: 20px 10px;
     border-top: 1px solid #ddd; 
     text-align: center;
@@ -164,7 +166,7 @@ a {
 @media (max-width: 650px) {
     .header nav {
         flex-direction: column;
-        /* MODIFIÉ: padding de 10px sur les côtés pour le mobile */
+        /* Espacement de 10px de chaque côté sur mobile */
         padding: 20px 10px; 
     }
     .nav-links {
@@ -175,7 +177,7 @@ a {
     }
     .gallery {
         column-count: 1; 
-        /* Maintenu à 20px car le mode 1 colonne nécessite plus d'air */
+        /* Maintien à 20px pour un bon espacement en mode colonne unique */
         padding: 0 20px; 
         margin: 40px auto 30px auto; 
     }
