@@ -14,10 +14,11 @@ a {
 
 /* --- 2. En-tête (Navigation) --- */
 .header nav {
-    /* MODIFIÉ: Utilise la largeur maximale de l'écran */
-    max-width: 100%; 
+    /* MODIFIÉ: Limite la largeur du conteneur à 1600px */
+    max-width: 1600px; 
     margin: 0 auto;
-    padding: 35px 0; 
+    /* MODIFIÉ: Ajout d'un padding horizontal de 20px */
+    padding: 35px 20px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,10 +41,11 @@ a {
 
 /* --- 3. Galerie de Projets (Grille Masonry CSS Columns) --- */
 .gallery {
-    /* MODIFIÉ: Utilise la largeur maximale de l'écran */
-    max-width: 100%; 
+    /* MODIFIÉ: Limite la largeur du conteneur à 1600px */
+    max-width: 1600px; 
     margin: 60px auto 30px auto; 
-    padding: 0; 
+    /* MODIFIÉ: Ajout d'un padding horizontal de 20px */
+    padding: 0 20px; 
     
     column-count: 5; 
     column-gap: 15px; 
@@ -74,10 +76,11 @@ a {
 
 /* --- 4. Pied de Page (Footer) --- */
 .footer {
-    /* MODIFIÉ: Utilise la largeur maximale de l'écran */
-    max-width: 100%;
+    /* MODIFIÉ: Limite la largeur du conteneur à 1600px */
+    max-width: 1600px;
     margin: 50px auto 20px auto;
-    padding: 20px 0;
+    /* MODIFIÉ: Ajout d'un padding horizontal de 20px */
+    padding: 20px 20px;
     border-top: 1px solid #ddd; 
     text-align: center;
     font-size: 0.85em;
@@ -164,7 +167,8 @@ a {
 @media (max-width: 650px) {
     .header nav {
         flex-direction: column;
-        padding: 20px 5px; 
+        /* Remise d'un padding de 20px sur les côtés pour le mobile */
+        padding: 20px 20px; 
     }
     .nav-links {
         margin-top: 10px;
