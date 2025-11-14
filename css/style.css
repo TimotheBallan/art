@@ -1,188 +1,3 @@
-/* --- 1. Réinitialisation et Polices --- */
-body {
-    /* MODIFIÉ: Utilisation de la police Oswald */
-    font-family: 'Oswald', sans-serif;
-    color: #333;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit; 
-}
-
-/* --- 2. En-tête (Navigation) --- */
-.header nav {
-    max-width: 1600px; 
-    margin: 0 auto;
-    /* Espacement de 10px de chaque côté */
-    padding: 35px 10px; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 1.6em; 
-}
-
-.nav-links a {
-    margin-left: 20px;
-    opacity: 0.7; 
-    transition: opacity 0.3s;
-}
-
-.nav-links a:hover {
-    opacity: 1; 
-}
-
-/* --- 3. Galerie de Projets (Grille Masonry CSS Columns) --- */
-.gallery {
-    max-width: 1600px; 
-    margin: 60px auto 30px auto; 
-    /* Espacement de 10px de chaque côté */
-    padding: 0 10px; 
-    
-    column-count: 5; 
-    column-gap: 15px; 
-}
-
-.project-item {
-    display: block;
-    break-inside: avoid; 
-    
-    margin-bottom: 15px; 
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
-    overflow: hidden; 
-    cursor: pointer; 
-}
-
-.project-item img {
-    width: 100%;
-    height: auto; 
-    display: block;
-    transition: transform 0.3s ease-in-out; 
-}
-
-.project-item:hover img {
-    transform: scale(1.05); 
-}
-
-/* --- 4. Pied de Page (Footer) --- */
-.footer {
-    max-width: 1600px;
-    margin: 50px auto 20px auto;
-    /* Espacement de 10px de chaque côté */
-    padding: 20px 10px;
-    border-top: 1px solid #ddd; 
-    text-align: center;
-    font-size: 0.85em;
-    color: #888;
-}
-
-.footer .social-links a {
-    margin: 0 10px;
-    opacity: 0.7;
-}
-
-.footer .social-links a:hover {
-    opacity: 1;
-}
-
-/* --- 5. Styles Lightbox / Modal (Zoom au clic) --- */
-.lightbox {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.9);
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox:target {
-    visibility: visible;
-    opacity: 1;
-}
-
-.lightbox img {
-    max-width: 90vw;    
-    max-height: 90vh;  
-    width: auto;
-    height: auto;
-    object-fit: contain; 
-    transform: none !important; 
-}
-
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-}
-
-.close-btn:hover {
-    opacity: 1;
-}
-
-/* --- 6. Responsive pour les petits écrans (Ajustement des colonnes) --- */
-
-@media (max-width: 1400px) {
-    .gallery {
-        column-count: 4; 
-    }
-}
-
-@media (max-width: 1100px) {
-    .gallery {
-        column-count: 3; 
-    }
-}
-
-@media (max-width: 750px) {
-    .gallery {
-        column-count: 2; 
-    }
-}
-
-@media (max-width: 650px) {
-    .header nav {
-        flex-direction: column;
-        /* Espacement de 10px de chaque côté sur mobile */
-        padding: 20px 10px; 
-    }
-    .nav-links {
-        margin-top: 10px;
-    }
-    .nav-links a {
-        margin: 0 10px;
-    }
-    .gallery {
-        column-count: 1; 
-        /* Maintien à 20px pour un bon espacement en mode colonne unique */
-        padding: 0 20px; 
-        margin: 40px auto 30px auto; 
-    }
-}
-
 /* --- 7. Styles de page de Contenu (Contact, Demoreel) --- */
 
 .content-page {
@@ -213,7 +28,7 @@ a {
 .contact-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Important pour centrer tout */
     background: white;
     padding: 30px;
     border-radius: 8px;
@@ -230,31 +45,40 @@ a {
     margin-bottom: 20px;
 }
 
+.contact-details {
+    /* Assure que l'email et les boutons sont centrés sur mobile et en colonne */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espace entre les lignes */
+}
+
+/* Nouveau conteneur pour les boutons sociaux - Alignement horizontal */
+.social-links {
+    display: flex; 
+    gap: 15px;    
+    margin-top: 5px; /* Petit espace au-dessus des boutons */
+}
+
 .contact-details h3 {
     margin-top: 0;
 }
 
-/* Nouveau conteneur pour les boutons sociaux */
-.social-links {
-    display: flex; /* Aligne les enfants (boutons) horizontalement */
-    gap: 15px;    /* Espace entre les boutons */
-    margin-top: 15px; /* Espace après l'email si l'email est dans contact-details */
-}
-
-/* Styles communs des boutons (LinkedIn et Instagram) */
+/* Styles pour les boutons LinkedIn et Instagram */
 .linkedin-btn,
 .instagram-btn {
+    /* Styles de base communs */
     display: inline-block;
     padding: 10px 20px;
-    /* Rendu des marges et couleurs */
     color: white !important;
     border-radius: 4px;
     transition: background-color 0.3s;
-    /* Réinitialisation de la marge pour les aligner dans social-links */
+    /* Annuler la marge-top qui n'est plus nécessaire dans .social-links */
     margin-top: 0; 
+    font-weight: bold;
 }
 
-/* Style LinkedIn existant (Bleu) */
+/* Style LinkedIn (Bleu) */
 .linkedin-btn {
     background-color: #0077B5; 
 }
@@ -264,36 +88,42 @@ a {
     opacity: 1 !important; 
 }
 
-/* --- NOUVEAU STYLE INSTAGRAM (Violet) --- */
+/* Style Instagram (Violet) */
 .instagram-btn {
-    background-color: #833AB4; /* Violet vif */
+    background-color: #833AB4; 
     color: white !important;
 }
 
 .instagram-btn:hover {
-    background-color: #6C2B90; /* Violet plus foncé au survol */
+    background-color: #6C2B90; 
     opacity: 1 !important;
 }
 
-/* Style de la police Instagram pour s'approcher de la marque (si utilisé dans le HTML) */
+/* Style de la police Instagram pour s'approcher de la marque */
 .instagram-font {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     font-weight: bold; 
 }
-/* --- FIN DES NOUVEAUX STYLES --- */
 
 
+/* Responsive pour les grands écrans */
 @media (min-width: 600px) {
     .contact-card {
         flex-direction: row;
         text-align: left;
+        /* Centre le contenu verticalement (la photo et les détails) */
+        align-items: center; 
     }
     .profile-photo {
         margin-right: 30px;
         margin-bottom: 0;
     }
-    /* Aligner le contenu de contact-details à gauche pour les grands écrans */
+    /* Aligner le contenu de contact-details à gauche mais garder les boutons groupés */
     .contact-details {
         align-items: flex-start;
+    }
+    /* Centrer les boutons sous l'email */
+    .social-links {
+        justify-content: flex-start;
     }
 }
